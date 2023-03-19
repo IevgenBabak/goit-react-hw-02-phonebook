@@ -6,19 +6,23 @@ export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
-  };
+  }
 
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-  };
+  }
 
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     this.props.handleSubmit(this.state);
-    form.reset();
-  };
+    // form.reset();
+    this.setState({
+    name: '',
+    number: '',
+  })
+  }
 
   render() {
     const { name, number } = this.state;
@@ -36,7 +40,7 @@ export class ContactForm extends Component {
           placeholder="Enter name"
           value={name}
           onChange={this.handleChange}
-        />
+          />
         <label className={css.formLabel}>Number </label>
         <input
           className={css.formNumber}
