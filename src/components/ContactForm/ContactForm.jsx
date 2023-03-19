@@ -22,7 +22,7 @@ export class ContactForm extends Component {
     name: '',
     number: '',
   })
-  }
+  } 
 
   render() {
     const { name, number } = this.state;
